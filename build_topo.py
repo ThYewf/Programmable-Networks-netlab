@@ -52,13 +52,11 @@ def check_mine(spec):
 
 
 def check(spec):
-    """Return a list of problems in the description (an empty list means it looks fine).
-
-    Week 2 task: report any IP address that is used by more than one host.
-    """
+    """Return a list of problems in the description."""
     problems = []
     seen_ips = {}
 
+    # Check for duplicate IPv4 and IPv6 addresses.
     for host in spec["hosts"]:
         name = host["name"]
 
@@ -77,8 +75,18 @@ def check(spec):
             else:
                 seen_ips[address] = name
 
-    return problems
+    # Check that every link endpoint exists.
+    known_nodes = set(spec["switches"])
+    known_nodes.update(host["name"] for host in spec["hosts"])
 
+    for a, b in spec["links"]:
+        for node in (a, b):
+            if node not in known_nodes:
+                problems.append(
+                    f"link [{a}, {b}] refers to unknown node {node}"
+                )
+
+    return problems
 
 def build(spec):
     """Turn the description into a Mininet network: switches, then hosts, then links."""
