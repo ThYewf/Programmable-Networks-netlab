@@ -1,0 +1,31 @@
+# page.yaml: the words on your page, kept as data like everything else.
+# make_page.py puts each answer under its question. A few sentences each, in your own words;
+# leave a blank line between paragraphs. Refer to YOUR network and YOUR evidence.
+# Never put your name or full student ID here: the page is public.
+
+repository: https://github.com/ThYewf/Programmable-Networks-week2-netlab
+
+answers:
+  planes:
+    question: "Where are the data, control and management planes in your network?"
+    answer: "Data plane is the s1,s2,s3 which forward frames between hosts. Control plane is the swtiching logic that learn MAC address and decide which port to use. Management plane is the Python scripts and YAML topo use to describe and build the network."
+  learning:
+    question: "How did your switches learn which port leads to each host? Use your MAC table evidence."
+    answer: "When hosts send traffic, switches will learn the sourcse MAC address and link them frm the source port. My evidence MAC table show s1 learned MAC addr and its  associate bridge ports. "
+  kind:
+    question: "Which of the four kinds of programmability is this assignment (a network described as data, then built and documented by scripts)? Why isn't it any of the other three?"
+    answer: "This is (d) automated conf management because network describe in YAML and use script to validate, built and document repeatably. 
+   It is not (a) programmable data plane because I do not change how packets are processed, (b) externalised control plane because I do not use a separate central controller or (c) programmatic device interfaces because I am not configuring devices through APIs such as NETCONF or RESTCONF."
+  two_am:
+    question: "Week 1's 2 a.m. change on 40 switches: what would be different if those switches were described like your network?"
+    answer: "If all 40 switches represented in strctured data, I will push using scripts and use automation to validate the consistency. I can check for mistakes before making batch chages and also generate documentation for the updated model."
+  model:
+    question: "What's the difference between your network's data model and its serialisation? Use YAML and JSON as the example."
+    answer: "Data model describes and make up my network with hosts, switches, IP and links. YAML and JSON are two serialisation format my model topology.yml. JSON strict and lots of punctuation while YAML indentation matters a lot. One of the significant different is JSON format don't have the comments. "
+  check:
+    question: "Why is it better to catch bad data in check() than with pingall? What did IPv6 notice about a duplicate address that IPv4 didn't?"
+    answer: "The catch() function catch problem before Mininet builds the network. This is better and easier to diagnosis rather than finding problem after network start and connectivity fail.
+IPv6 Duplicate Address Detection can flag the duplicated address as dadfailed, while IPv4 can accept the duplicate address without automatically detecting the conflict. This behaviour is recorded in evidence/dad.txt. "
+  git:
+    question: "What does your Git history give you that copying files into folders named topology-v2-final wouldn't?"
+    answer: "Git records changes I make over time, all along with commit messages. This help to compare version and restore earlier working version if necessary. Folder name like topo-v2 does not provide such reliable change tracking compare to git. "
