@@ -1,0 +1,19 @@
+# page3.yaml: the words on your Week 3 page. make_page3.py puts each answer under its question.
+# A few sentences each, in your own words, about YOUR network and YOUR evidence.
+# Leave a blank line between paragraphs. Never put your name or full student ID here.
+
+repository: https://github.com/ThYewf/Programmable-Networks-netlab
+
+answers:
+  design:
+    question: "Describe your design: why these routers, LANs and links, and how you chose the addresses."
+    answer: "I design 4 routers and 4 LANs with one host on each LAN to meet the min requirement. The router form a ring: r1-r2-r3-r4-r1. I use separate /24 subnets for LANs and /30 subnets for router links. This keep the address organized and avoid overlapping. "
+  summary:
+    question: "Which route summarises several LANs? Which networks does it cover, why is it correct, and what else would it attract if you added a network inside its range?"
+    answer: "Router r1 has the summary route 10.79.2.0/23 via 10.79.12.2. It covers both 10.79.2.0/24 (LAN 2) and 10.79.3.0/24 (LAN 3). If add another network inside the range, traffic for the address will also match the summary route. "
+  failure:
+    question: "When you took a link down, what happened, and why couldn't your routes recover even though another path existed? What would have recovered?"
+    answer: "When I brought down r1-r4 link, traffic from h1 to h4 failed. R1 had static route to R4 LAN, hence the route lookup report network unreachable. The ring provide another path thru r2 and r3 but static route did not auto switch to that path. Therefore, for improvement we can have conf backup static route or dynamic routing protocol to provide recovery. "
+  control_plane:
+    question: "In your network, what was the control plane? Who worked out the routes, and what does that mean for a network of 40 routers?"
+    answer: "The configuration file like network.yaml and build_routed.py are the control plane which handled the routing conf on each router. The routes were configured manual using IP routing commnds, which specified destination and next hop IP. For network with 40 routers, manually configuring routes would become error-prone and difficult to maintain. Any topo change or link failure require updates to multiple routing table. Therefore, dynamic routing protocol like OSPF would be suiltable for routers exchange routing info and calc routes automatically. "

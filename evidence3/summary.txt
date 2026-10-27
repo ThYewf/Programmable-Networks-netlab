@@ -1,0 +1,5 @@
+== Summary route on R1
+10.79.2.10 via 10.79.12.2 dev r1-eth1 src 10.79.12.1 uid 0 
+    cache 
+10.79.3.10 via 10.79.12.2 dev r1-eth1 src 10.79.12.1 uid 0 
+    cache 

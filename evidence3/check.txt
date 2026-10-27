@@ -1,0 +1,5 @@
+PROBLEM: h2 to h1: routing loop at r2
+PROBLEM: h3 to h1: routing loop at r3
+Fix the description and try again: nothing was built.
+PROBLEM: h4 to h3: no route to 10.79.3.10 at r4
+Fix the description and try again: nothing was built.

@@ -1,0 +1,8 @@
+== Before link failure
+10.79.4.10 via 10.79.14.1 dev r1-eth2 src 10.79.14.2 uid 0 
+    cache 
+== Traceroute while R1-R4 is down
+traceroute to 10.79.4.10 (10.79.4.10), 5 hops max, 60 byte packets
+ 1  10.79.1.1  0.067 ms !N
+== R1 route lookup while link is down
+RTNETLINK answers: Network is unreachable
