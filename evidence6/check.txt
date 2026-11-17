@@ -1,0 +1,3 @@
+PROBLEM: Tenant alpha: requires MTU 1550, but underlay MTU is 1500 (50 bytes too large)
+PROBLEM: Tenant beta: requires MTU 1550, but underlay MTU is 1500 (50 bytes too large)
+Fix the design and try again: nothing was built.
